@@ -7,7 +7,7 @@ date: 15/07/2025
 date-format: long
 
 logo: img/PHlogo.svg
-footer: Folien {{< iconify streamline:creative-commons-solid >}} {{< iconify fa6-brands:creative-commons-by >}} unter bit.ly/merk314
+footer: Folien {{< iconify streamline:creative-commons-solid >}} {{< iconify fa6-brands:creative-commons-by >}} unter **https://ogy.de/merk025**
 
 format: 
   revealjs:
@@ -43,9 +43,6 @@ bibliography: references.bib
 
 ::: {style="margin-top: 300px; font-size: 2em; font-weight: bold; color:#267326; margin-left: 110px;"}
 Historie {{< iconify fa6-solid timeline >}}
-:::
-
-::: footer
 :::
 
 
@@ -96,8 +93,6 @@ Historie {{< iconify fa6-solid timeline >}}
 Stand der Forschung {{< iconify fa6-solid:scale-unbalanced >}}
 :::
 
-::: footer
-:::
 
 ## Stand der Forschung {{< iconify fa6-solid:scale-unbalanced >}} {.smaller}
 ::: {layout-ncol=2}
