@@ -3,7 +3,7 @@ title: Formatives Assessment
 subtitle: Historie - Stand der Forschung - Digitale Transformation
 author: Samuel Merk
 
-date: 15/07/2025
+date: today
 date-format: long
 
 logo: img/PHlogo.svg
