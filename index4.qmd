@@ -1,0 +1,395 @@
+---
+title: Formatives Assessment
+subtitle: Bildungswissenschaftliche und fachdidaktische Aspekte professionellen Handelns von Lehrpersonen
+author: Samuel Merk
+
+date: 04/29/2025
+date-format: long
+
+logo: img/ph-logo.svg
+footer: Folien {{< iconify streamline:creative-commons-solid >}} {{< iconify fa6-brands:creative-commons-by >}} unter bit.ly/merk314
+
+format: 
+  revealjs:
+    slide-number: c
+brand: _template/_brand.yml    
+
+lang: de
+
+nocite: |
+  @bez2025individuelle, @black1998, @beckmann1978, @timmerhaus2001, @lunowa2025grafische, @bez2025, @bez_inprep
+bibliography: references.bib
+---
+
+## Ziel des Vortrags {{< iconify fa-solid:bullseye >}}{.center .smaller}
+
+> Ich möchte am **Beispiel des Formativen Assessments** illustrieren, wie sich Fachdidaktiken und Bildungswissenschaften bei der Entwicklung von Professionalität durch Lehrpersonenbildung **gleichermaßen bedingen**.
+
+![](img/ziel.png){width=70% fig-align="center"}
+
+
+## Überblick {.center}
+
+| {{< iconify simple-icons:futurelearn >}} | **Formatives Assessment** |
+|---------------------------------------:|:-------------------------------|
+| {{< iconify fa-solid:chalkboard-teacher >}} | **Professionalität & Formatives Assessment** |
+| {{< iconify fa6-solid repeat >}} | Zum **Verhältnis** fachdidaktischer und bildungswissenschaftlicher Aspekte |
+| {{< iconify fa6-solid microscope >}} | Ausgewählte **Projekte & Befunde** |
+
+: Vortragsüberblick {#tbl-agenda tbl-colwidths="\[5,90\]"}
+
+<style>
+#tbl-agenda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca {
+  color: #d9534f00; /* transparant */
+  font-weight: bold;
+}
+</style>
+
+## <!-- Formatives Assessment--> {auto-animate="true"}
+
+::: {style="margin-top: 300px; font-size: 2em; font-weight: bold; color:#267326; margin-left: 110px;"}
+Formatives Assessment {{< iconify simple-icons:futurelearn >}}
+:::
+
+::: footer
+:::
+
+
+## <!-- Formatives Assessment--> {.smaller auto-animate="true"}
+::: {style="margin-top: 0px;font-size: 2.3em; font-weight: bold; color:#267326; margin-left: 0px;"}
+Formatives Assessment {{< iconify simple-icons:futurelearn >}}
+:::
+
+**Definitionen**
+
+* *»Evaluation, used to improve the course while it is still fluid«* [@cronbach1964, S. 236]
+* *»\[...\] assessment is formative only when comparison of actual and reference levels yields information which is then used to alter the gap«* [@black1998, S. 53].
+
+. . .
+
+**Begriffliche Unschärfe** [@misanchuk1978]
+```{=html}
+<script src="https://cdn.wordart.com/wordart.min.js" async defer></script>
+```
+
+::: {style="height:300px" data-wordart-src="https://cdn.wordart.com/json/7xj8vm7szv1e"}
+:::
+
+
+::: {.footer}
+**{{< iconify simple-icons:futurelearn >}}** [- {{< iconify fa-solid:chalkboard-teacher >}} - {{< iconify fa6-solid repeat >}} - {{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4;"}
+:::
+
+
+## Formatives Assessment {{< iconify simple-icons:futurelearn >}} {.smaller}
+
+::::: columns
+::: {.column width="50%"}
+-   Ältere Metaanalysen [@fuchs1986; @black1998] finden vergleichsweise große Effektstärken $(.4<d<.7)$
+-   Jüngere Metaanalysen sind immer noch positiv aber konservativer [vgl. @dunn2009; @kingston2011; @mclaughlin2017; @xuan2022]
+-   Als Moderatoren werden insbesondere das Fach, die digitale Umsetzung und begleitende Fortbildungen vorgeschlagen [@kingston2011]
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| fig-height: 5
+#| fig-format: "svg"
+#| fig-width: 4.3
+#| out-width: 100%
+
+set.seed(1234)
+library(tidyverse)
+library(bayestestR)
+library(ggdist)
+library(hrbrthemes)
+library(colorspace)
+
+data <- tibble(
+  `Summativ_Cohen's d = .4` = distribution_normal(250, 13),
+  `Formativ_Cohen's d = .4` = distribution_normal(250, 13 + .4),
+  `Summativ_Cohen's d = .7` = distribution_normal(250, 13),
+  `Formativ_Cohen's d = .7` = distribution_normal(250, 13 + .7)) %>% 
+  gather(Gruppe, Leistung) %>% 
+  mutate(Effektstärke = str_sub(Gruppe, -14, -1),
+         Gruppe = str_sub(Gruppe, 1, 8))
+
+
+ggplot(data, aes(Leistung, Gruppe)) +
+  geom_dots(fill = lighten("#267326", .3),
+            color = lighten("#267326", .3),
+            layout = "hex") + 
+  #stat_halfeye(fill = "#26732650",
+  #             color = "#174717") +
+  stat_pointinterval(color = "#174717") +
+  facet_wrap(~ Effektstärke, ncol = 1) +
+  theme_ipsum_rc() + 
+  ylab("") +
+  theme(axis.line.x = element_blank(),
+        axis.text.x = element_blank(),
+        panel.background = element_rect(fill = "#f2f2f2",
+                                        color = "#f2f2f2"),
+        plot.background = element_rect(fill = "#f2f2f2",
+                                        color = "#f2f2f2"))
+```
+:::
+:::::
+
+::: {.footer}
+**{{< iconify simple-icons:futurelearn >}}** [- {{< iconify fa-solid:chalkboard-teacher >}} - {{< iconify fa6-solid repeat >}} - {{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4;"}
+:::
+
+
+
+## <!-- Professionalität--> {auto-animate="true"}
+
+::: {style="margin-top: 300px; font-size: 2em; font-weight: bold; color:#267326; margin-left: 110px;"}
+[Professionalität {{< iconify fa-solid:chalkboard-teacher >}}]{.imp}
+:::
+
+::: {.footer}
+:::
+
+## <!-- Professionalität--> {.smaller auto-animate="true"}
+
+::: {style="margin-top: 0px;font-size: 2.3em; font-weight: bold; color:#267326; margin-left: 0px;"}
+Professionalität {{< iconify fa-solid:chalkboard-teacher >}}
+:::
+
+:::::: columns
+::: {.column width="40%"}
+
+#### Kompetenztheoretischer Ansatz 
+* In der Tradition des Expertiseansatzes der Lehrpersonenprofessionalität [@bromme1992]
+* Topologie von Wissen, Überzeugungen, Werthaltungen, motivationalen Orientierungen & selbstregulativen Fähigkeiten [@baumert2006]
+:::
+
+::: {.column width="30%"}
+#### Strukturtheo. Ansatz
+* Soziologischer Fokus auf Rollenerwartungen und soziale Gefüge [@helsper2014]
+* Insbesondere sog. »Antinomien« wurden stark rezipiert [@fabel-lamla2018]
+:::
+
+::: {.column width="30%"}
+#### Berufsbiografischer Ansatz
+* In Tradition erziehungswissenschaftlicher Biografieforschung [@terhart1992]
+* Stark intraindividuelle Perspektive [@fabel-lamla2018]
+:::
+::::::
+
+:::: {.columns}
+::: {.column width='33%'}
+<center>[{{< iconify fluent-mdl2:venn-diagram size=3x >}}]{style='color:#267326;'}</center>
+:::
+
+::: {.column width='33%'}
+<center>[{{< iconify oui:app-users-roles size=3x >}}]{style='color:#267326;'}</center>
+:::
+
+::: {.column width='33%'}
+<center>[{{< iconify lineicons:route-1 size=3x >}}]{style='color:#267326;'}</center>
+:::
+
+::::
+
+
+
+::: {.footer}
+[{{< iconify simple-icons:futurelearn >}}]{style="color: #b4b4b4;"} - **{{< iconify fa-solid:chalkboard-teacher >}}** [- {{< iconify fa6-solid repeat >}} - {{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4;"}
+:::
+
+## <!-- Fachdidaktik & Bildungswissenschaften --> {auto-animate="true"}
+::: {style="margin-top: 300px; font-size: 1.8em; font-weight: bold; color:#267326; margin-left: 110px;"}
+[[Fachdidaktik & Bildungswissenschaften {{< iconify fa6-solid repeat >}}]{style="font-size: .7em;"}]{.imp}
+:::
+
+::: {.footer}
+:::
+
+## <!-- Fachdidaktik & Bildungswiss.--> {auto-animate="true" .smaller}
+::: {style="margin-top: 0px;font-size: 2.3em; font-weight: bold; color:#267326; margin-left: 0px;"}
+[Fachdidaktik & Bildungswissenschaften {{< iconify fa6-solid repeat >}}]{style="font-size: .9em;"}
+:::
+
+
+![](img/notwBed.png){width="53%" fig-align="center"}
+
+> Bildungswissenschaftliche Aspekte können notwendige Bedingung für »professionelles Formatives Assessment« darstellen [@barnes2014]
+
+::: {.footer}
+[{{< iconify simple-icons:futurelearn >}} - {{< iconify fa-solid:chalkboard-teacher >}}]{style="color: #b4b4b4;"} - **{{< iconify fa6-solid repeat >}}** - [{{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4;"}
+:::
+
+## [Fachdidaktik & Bildungswissenschaften {{< iconify fa6-solid repeat >}}]{style="font-size: .9em;"} {.smaller}
+:::: {.columns}
+
+::: {.column width='50%'}
+*Welche Aufgabe in Klasse 7 für FA?*
+
+1) $378 \cdot 605 = ?$
+2) $58,7 \cdot 0,94 = ?$
+3) $\frac{1}{2} \cdot \frac{5}{6} = ?$
+4) Gwendolyn ist $\frac{3}{4}$ so alt wie Rebecca. Rebecca ist $\frac{2}{3}$ so alt wie Edwin. Edwin ist $20$ Jahre alt. Wie alt ist Gwendolyn?
+:::
+
+::: {.column width='45%'}
+![Hassediagramm dieser Aufgaben nach Falmagne [-@falmagne1990]](img/Hasse.png){width="70%"}
+:::
+::::
+
+
+> Fachdidaktische Aspekte können eine notwendige Bedingung für »professionelles Formatives Assessment« darstellen [@heitink2016].
+
+::: {.footer}
+[{{< iconify simple-icons:futurelearn >}} - {{< iconify fa-solid:chalkboard-teacher >}}]{style="color: #b4b4b4;"} - **{{< iconify fa6-solid repeat >}}** - [{{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4;"}
+:::
+
+
+## [Fachdidaktik & Bildungswissenschaften {{< iconify fa6-solid repeat >}}]{style="font-size: .9em;"} {.smaller}
+
+::: {.r-stack}
+![](img/Induktion3 (5).png){.fragment width="47%" fig-align="center"}
+
+![](img/Induktion3 (7).png){.fragment width="47%" fig-align="center"}
+
+![](img/Induktion3 (8).png){.fragment width="47%" fig-align="center"}
+
+![](img/Induktion3 (9).png){.fragment width="47%" fig-align="center"}
+
+![](img/Induktion3 (6).png){.fragment width="47%" fig-align="center"}
+
+![](img/Induktion3 (10).png){.fragment width="47%" fig-align="center"}
+:::
+
+
+> Bildungswissenschaftliche Aspekte können induktiv entstehen [@terhart2013; @bayrhuber2017]
+
+::: {.footer}
+[{{< iconify simple-icons:futurelearn >}} - {{< iconify fa-solid:chalkboard-teacher >}}]{style="color: #b4b4b4;"} - **{{< iconify fa6-solid repeat >}}** - [{{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4;"}
+:::
+
+## [Fachdidaktik & Bildungswissenschaften {{< iconify fa6-solid repeat >}}]{style="font-size: .9em;"} {.smaller}
+::: {.r-stack}
+![](img/deduktion.png){.fragment width="50%" fig-align="center"}
+
+![](img/deduktion (1).png){.fragment width="50%" fig-align="center"}
+
+![](img/deduktion (2).png){.fragment width="50%" fig-align="center"}
+
+![](img/deduktion (3).png){.fragment width="50%" fig-align="center"}
+:::
+
+> Fachdidaktische Aspekte können deduktiv entstehen [@kohnlein1977; @nachtigall1979]
+
+::: {.footer}
+[{{< iconify simple-icons:futurelearn >}} - {{< iconify fa-solid:chalkboard-teacher >}}]{style="color: #b4b4b4;"} - **{{< iconify fa6-solid repeat >}}** - [{{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4;"}
+:::
+
+## [Fachdidaktik & Bildungswissenschaften {{< iconify fa6-solid repeat >}}]{style="font-size: .9em;"} {.smaller}
+#### Allgemeine Verhältnisbestimmungen
+* In der Vergangenheit waren wechselseitige Abgrenzungs- und Vereinnahmungsversuche erkennbar [@binder2022a]
+* Ältere Verhältnisbestimmungen sehen Fachdidaktiken eher als »Integrationswissenschaften« [@kohnlein1977; @nachtigall1979]
+* Jüngere verorten sich teilweise im interdisziplinären Feld der empirischen Bildungsforschung [@leuders2015]
+* Vielfalt der Verhältnisbestimmungen scheint ungebrochen:
+
+:::: {.columns}
+
+::: {.column width='16%'}
+![](img/verhaeltnis1-e.png){group="my-gallery"}
+:::
+
+::: {.column width='16%'}
+![](img/verhaeltnis2-e.png){group="my-gallery"}
+:::
+
+::: {.column width='16%'}
+![](img/verhaeltnis3-e.png){group="my-gallery"}
+:::
+
+::: {.column width='16%'}
+![](img/verhaeltnis4-e.png){group="my-gallery"}
+:::
+
+::: {.column width='16%'}
+![](img/verhaeltnis5-e.png){group="my-gallery"}
+:::
+
+::: {.column width='16%'}
+![](img/verhaeltnis6-e.png){group="my-gallery"}
+:::
+::::
+
+<center>Vielfalt der Verhältnisbestimmungen nach Cramer [-@cramer2019b]</center>
+
+::: {.footer}
+[{{< iconify simple-icons:futurelearn >}} - {{< iconify fa-solid:chalkboard-teacher >}}]{style="color: #b4b4b4;"} - **{{< iconify fa6-solid repeat >}}** - [{{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4;"}
+:::
+
+## <!-- Ausgewählte Projekte & Befunde --> {auto-animate="true"}
+::: {style="margin-top: 300px; font-size: 1.5em; font-weight: bold; color:#267326; margin-left: 110px;"}
+[Ausgewählte Projekte & Befunde {{< iconify fa6-solid microscope >}}]{.imp}
+:::
+
+::: {.footer}
+:::
+
+## <!-- Ausgewählte Projekte & Befunde--> {.smaller auto-animate="true"}
+::: {style="margin-top: 0px;font-size: 2.3em; font-weight: bold; color:#267326; margin-left: 0px;"}
+Ausgewählte Projekte & Befunde {{< iconify fa6-solid microscope >}}
+:::
+
+#### Projekt: **Vom Testergebnis zur pädagogischen Maßnahme** ![](img/logo_mindsteps.png){width=12% style="margin: -6px 0px!important;"}
+* In Kooperation mit Martin Tomasik (Zürich) und Sarah Bez (Karlsruhe), gefördert durch die Biaesch Stiftung 
+* Explorativer Fokus auf Rezeptions- und Sensemakingprozesse von Heavy-Usern des digitalen formativen Assessmentsystems mindsteps
+* Zentraler Befund: [»Fachdidaktische Fehleranalyse« nimmt großen Raum ein und scheint wichtige Voraussetzung für die Konstruktion praktischer Implikationen {{< iconify fa6-solid:arrow-up-right-from-square >}}](img/biaesch_ergebnis.png){.lightbox} 
+* Anschlussfragestellung:  
+
+    *Wie kann diese »Fachdidaktische Fehleranalyse« [unterstützt](img/heatmaps.png){.lightbox} werden?*
+  
+::: {.footer}
+[{{< iconify simple-icons:futurelearn >}} - {{< iconify fa-solid:chalkboard-teacher >}} - {{< iconify fa6-solid repeat >}}]{style="color: #b4b4b4;"} - **{{< iconify fa6-solid microscope >}}**
+:::  
+
+
+## Ausgewählte Projekte & Befunde {{< iconify fa6-solid microscope >}} {.smaller .center}
+#### Teilprojekt: **Aufgabendashboards** im Promotionskolleg [![](img/Logo_AQUAd.png){width=12% style="margin: -6px 0px!important;"}](img/Sunburst_AQUA.png){.lightbox}
+* In Kooperation mit Anouschka van Leeuwen (Utrecht) & Thorsten Bohl (Tübingen), gefördert durch das MWK Baden-Württemberg
+* Experimentelle Variation von Rückmeldeformaten formativer Assessments 
+* Zentraler Befund: [Die grafische Darstellung beeinflusst die eingenommene Bezugsnorm {{< iconify fa6-solid:arrow-up-right-from-square >}}](img/Ergebnisse_aquad.png){.lightbox} 
+* Anschlussfragestellung:
+
+    *Wie sollten sozial normierte mehrdimensionale formative Assessments kommuniziert werden?*
+    
+::: {.footer}
+[{{< iconify simple-icons:futurelearn >}} - {{< iconify fa-solid:chalkboard-teacher >}} - {{< iconify fa6-solid repeat >}}]{style="color: #b4b4b4;"} - **{{< iconify fa6-solid microscope >}}**
+:::  
+
+
+## Ausgewählte Projekte & Befunde {{< iconify fa6-solid microscope >}} {.smaller .center}
+#### Projekt: ![](img/logo_ccPENDL.png){width=12% style="margin: -6px 0px!important;"}
+* In Kooperation mit Karina Karst (Mannheim), Nadine Anskeit und Sarah Bez (Karlsruhe), gefördert durch die Robert Bosch Stiftung 
+* Service Learning Projekt, in dem Lehramtsstudierende für diagnosegeleitete Leseflüssigkeitsförderung professionalisiert werden
+* Zentraler Befund: [Effekte auf Schülerebene in Quasiexperiment {{< iconify fa6-solid:arrow-up-right-from-square >}}](img/Ergebnisse_ccPENDL.png){.lightbox} 
+* Anschlussfragestellung: 
+
+    *Kann Interesse und Selbstwirksamkeit bzgl. diagnosegleiteter Leseförderung durch individualisierte Motivationsinterventionen gesteigert werden?*
+
+::: {.footer}
+[{{< iconify simple-icons:futurelearn >}} - {{< iconify fa-solid:chalkboard-teacher >}} - {{< iconify fa6-solid repeat >}}]{style="color: #b4b4b4;"} - **{{< iconify fa6-solid microscope >}}**
+:::  
+
+
+
+## {.center data-visibility="uncounted"}
+![](img/lupe.png){fig-align="center" width="70%"}
+
+::: footer
+:::
+
+
+
+
+## Literatur {.smaller}
+
+::: footer
+:::

@@ -1,0 +1,256 @@
+---
+title: Formatives Assessment
+subtitle: Historie - Stand der Forschung - Digitale Transformation
+author: Samuel Merk
+
+date: 15/07/2025
+date-format: long
+
+logo: img/PHlogo.svg
+footer: Folien {{< iconify streamline:creative-commons-solid >}} {{< iconify fa6-brands:creative-commons-by >}} unter bit.ly/merk314
+
+format: 
+  revealjs:
+    slide-number: c
+brand: _template/_brand.yml    
+
+lang: de
+
+nocite: |
+  @bez2025individuelle, @black1998, @beckmann1978, @timmerhaus2001, @lunowa2025grafische, @bez2025, @bez_inprep, @wiliam1996
+bibliography: references.bib
+---
+
+
+## Überblick {.center}
+
+| {{< iconify fa6-solid timeline >}} | **Historie** |
+|---------------------------------------:|:-------------------------------|
+| {{< iconify fa6-solid:scale-unbalanced >}} | **Stand der Forschung** |
+| {{< iconify charm:binary >}} | **Digitale** Transformation |
+| {{< iconify fa6-solid microscope >}} | Ausgewählte **Projekte & Befunde** |
+
+: Vortragsüberblick {#tbl-agenda tbl-colwidths="\[5,90\]"}
+
+<style>
+#tbl-agenda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca {
+  color: #d9534f00; /* transparant */
+  font-weight: bold;
+}
+</style>
+
+## <!-- Historie--> {auto-animate="true"}
+
+::: {style="margin-top: 300px; font-size: 2em; font-weight: bold; color:#267326; margin-left: 110px;"}
+Historie {{< iconify fa6-solid timeline >}}
+:::
+
+::: footer
+:::
+
+
+## <!-- Historie--> {.smaller auto-animate="true"}
+
+::: {style="margin-top: 0px;font-size: 2.3em; font-weight: bold; color:#267326; margin-left: 0px;"}
+Historie {{< iconify fa6-solid timeline >}}
+:::
+
+<center>
+![Abbildung 1: Zentrale Definitionen](img/timeline_origins.png){fig.align="center"}
+</center>
+
+::: {.incremental}
+* *\[...\] terminal evaluation (we might call it summative as opposed to formative evaluation) \[...\]* [@scriven1967]
+* *Evaluation, used to improve the course while it is still fluid* [@cronbach1964]
+* *\[...\] systematic evaluation in the process of curriculum construction, teaching and learning for the purpose of improving any of these three processes \[...\]* [@Bloom1969]
+:::
+
+::: {.footer}
+**{{< iconify fa6-solid timeline >}}** [- {{< iconify fa6-solid:scale-unbalanced >}} - {{< iconify charm:binary >}} - {{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4;"}
+:::
+
+
+## Historie {{< iconify fa6-solid timeline >}} {.smaller}
+
+<center>
+
+![Abbildung 1: Zentrale Definitionen](img/timeline_intermediate.png){fig.align="center"}
+
+```{=html}
+<script src="https://cdn.wordart.com/wordart.min.js" async defer></script>
+```
+
+::: {style="height:300px" data-wordart-src="https://cdn.wordart.com/json/7xj8vm7szv1e"}
+:::
+
+</center>
+
+::: {.footer}
+**{{< iconify fa6-solid timeline >}}** [- {{< iconify fa6-solid:scale-unbalanced >}} - {{< iconify charm:binary >}} - {{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4;"}
+:::
+
+
+## <!-- Stand der Forschung--> {auto-animate="true"}
+
+::: {style="margin-top: 300px; font-size: 2em; font-weight: bold; color:#267326; margin-left: 110px;"}
+Stand der Forschung {{< iconify fa6-solid:scale-unbalanced >}}
+:::
+
+::: footer
+:::
+
+## Stand der Forschung {{< iconify fa6-solid:scale-unbalanced >}} {.smaller}
+::: {layout-ncol=2}
+![Abbildung 1: Zentrale Definitionen](img/timeline_stateoftheart.png){fig-align="left" width="99%"}
+
+![Abbildung 3: Five Key Strategies von @wiliam2007](img/WilliamThompson2007.svg){fig-align="left" width="99%"}
+:::
+
+
+> *formative Assessment [...] can be conceptualized as consisting of **five key strategies** and **one »big idea«**. [...] The »big idea« is that evidence about student learning is used to adjust instruction to  better meet student needs.* [@wiliam2007. S. 56].
+
+
+::: {.footer}
+[{{< iconify fa6-solid timeline >}}]{style="color: #b4b4b4;"} - **{{< iconify fa6-solid:scale-unbalanced >}}** - [{{< iconify charm:binary >}} - {{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4;"}
+:::
+
+## Stand der Forschung {{< iconify fa6-solid:scale-unbalanced >}} {.smaller}
+
+::::: columns
+::: {.column width="50%"}
+-   Ältere Metaanalysen [@fuchs1986; @black1998] finden vergleichsweise große Effektstärken $(.4<d<.7)$
+-   Jüngere Metaanalysen sind immer noch positiv aber konservativer [vgl. @dunn2009; @kingston2011; @mclaughlin2017; @xuan2022]
+-   Als Moderatoren werden insbesondere das Fach, die digitale Umsetzung und begleitende Fortbildungen vorgeschlagen [@kingston2011]
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| fig-height: 5
+#| fig-format: "svg"
+#| fig-width: 4.3
+#| out-width: 100%
+
+set.seed(1234)
+library(tidyverse)
+library(bayestestR)
+library(ggdist)
+library(hrbrthemes)
+library(colorspace)
+
+data <- tibble(
+  `Summativ_Cohen's d = .4` = distribution_normal(250, 13),
+  `Formativ_Cohen's d = .4` = distribution_normal(250, 13 + .4),
+  `Summativ_Cohen's d = .7` = distribution_normal(250, 13),
+  `Formativ_Cohen's d = .7` = distribution_normal(250, 13 + .7)) %>% 
+  gather(Gruppe, Leistung) %>% 
+  mutate(Effektstärke = str_sub(Gruppe, -14, -1),
+         Gruppe = str_sub(Gruppe, 1, 8))
+
+
+ggplot(data, aes(Leistung, Gruppe)) +
+  geom_dots(fill = lighten("#267326", .3),
+            color = lighten("#267326", .3),
+            layout = "hex") + 
+  #stat_halfeye(fill = "#26732650",
+  #             color = "#174717") +
+  stat_pointinterval(color = "#174717") +
+  facet_wrap(~ Effektstärke, ncol = 1) +
+  theme_ipsum_rc() + 
+  ylab("") +
+  theme(axis.line.x = element_blank(),
+        axis.text.x = element_blank(),
+        panel.background = element_rect(fill = "#f2f2f2",
+                                        color = "#f2f2f2"),
+        plot.background = element_rect(fill = "#f2f2f2",
+                                        color = "#f2f2f2"))
+```
+:::
+:::::
+
+::: {.footer}
+[{{< iconify fa6-solid timeline >}}]{style="color: #b4b4b4;"} - **{{< iconify fa6-solid:scale-unbalanced >}}** - [{{< iconify charm:binary >}} - {{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4;"}
+:::
+
+
+## <!-- Digitale Transformation --> {auto-animate="true"}
+::: {style="margin-top: 300px; font-size: 1.5em; font-weight: bold; color:#267326; margin-left: 110px;"}
+[Digitale Transformation {{< iconify charm:binary >}}]{.imp}
+:::
+
+::: {.footer}
+:::
+
+## <!-- Digitale Transformation--> {.smaller auto-animate="true"}
+::: {style="margin-top: 0px;font-size: 2.3em; font-weight: bold; color:#267326; margin-left: 0px;"}
+Digitale Transformation {{< iconify charm:binary >}}
+:::
+
+* **Einerseits** ist digitale Technologie in Unterrichtssettings weder notwendige noch hinreichende Bedingung für (Lern-)Erfolg [@bez2022; @hamilton2016; @scheiter2019]
+* **Andererseits** sind digitalen Technologien [*Charakteristika*]{.imp} inhärent, welche die Umsetzung von formativem Assessment enorm erleichtern können:
+    * [*Echtzeitdatenverarbeitung*]{.imp} $\Rightarrow$ z.B. sofortiges Feedback
+    * [*Multimedialität*]{.imp} $\Rightarrow$ z.B. neue Aufgabenformen
+    * [*Skalierbarkeit*]{.imp} $\Rightarrow$ z.B. algorithmische Aufgabengenerierung
+    * [*Vernetzung*]{.imp} $\Rightarrow$ z.B. zentrale Aufgabendatenbank für ein Bundesland
+    
+    
+::: {.footer}
+[{{< iconify fa6-solid timeline >}} - {{< iconify fa6-solid:scale-unbalanced >}}]{style="color: #b4b4b4;"} - **{{< iconify charm:binary >}}** - [{{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4;"}
+:::    
+
+## <!-- Ausgewählte Projekte & Befunde --> {auto-animate="true"}
+::: {style="margin-top: 300px; font-size: 1.5em; font-weight: bold; color:#267326; margin-left: 110px;"}
+[Ausgewählte Projekte & Befunde {{< iconify fa6-solid microscope >}}]{.imp}
+:::
+
+::: {.footer}
+:::
+
+
+## <!-- Ausgewählte Projekte & Befunde--> {.smaller auto-animate="true"}
+::: {style="margin-top: 0px;font-size: 2.3em; font-weight: bold; color:#267326; margin-left: 0px;"}
+Ausgewählte Projekte & Befunde {{< iconify fa6-solid microscope >}}
+:::
+
+#### Projekt: **Vom Testergebnis zur pädagogischen Maßnahme** ![](img/logo_mindsteps.png){width=12% style="margin: -6px 0px!important;"}
+* In Kooperation mit Martin Tomasik (Zürich) und Sarah Bez (Karlsruhe), gefördert durch die Biaesch Stiftung 
+* Explorativer Fokus auf Rezeptions- und Sensemakingprozesse von Heavy-Usern des digitalen formativen Assessmentsystems mindsteps
+* Zentraler Befund: [»Fachdidaktische Fehleranalyse« nimmt großen Raum ein und scheint wichtige Voraussetzung für die Konstruktion praktischer Implikationen {{< iconify fa6-solid:arrow-up-right-from-square >}}](img/biaesch_ergebnis.png){.lightbox} 
+
+  
+::: {.footer}
+[{{< iconify fa6-solid timeline >}} - {{< iconify fa6-solid:scale-unbalanced >}} - {{< iconify charm:binary >}}]{style="color: #b4b4b4;"} - **{{< iconify fa6-solid microscope >}}**
+:::   
+
+
+## Ausgewählte Projekte & Befunde {{< iconify fa6-solid microscope >}} {.smaller .center}
+#### Teilprojekt: **Aufgabendashboards** im Promotionskolleg [![](img/Logo_AQUAd.png){width=12% style="margin: -6px 0px!important;"}](img/Sunburst_AQUA.png){.lightbox}
+* In Kooperation mit Anouschka van Leeuwen (Utrecht) & Thorsten Bohl (Tübingen), gefördert durch das MWK Baden-Württemberg
+* Experimentelle Variation von Rückmeldeformaten formativer Assessments 
+* Zentraler Befund: [Die grafische Darstellung beeinflusst die eingenommene Bezugsnorm {{< iconify fa6-solid:arrow-up-right-from-square >}}](img/Ergebnisse_aquad.png){.lightbox} 
+
+    
+::: {.footer}
+[{{< iconify fa6-solid timeline >}} - {{< iconify fa6-solid:scale-unbalanced >}} - {{< iconify charm:binary >}}]{style="color: #b4b4b4;"} - **{{< iconify fa6-solid microscope >}}**
+:::  
+
+## Ausgewählte Projekte & Befunde {{< iconify fa6-solid microscope >}} {.smaller .center}
+#### Projekt: ![](img/logo_ccPENDL.png){width=12% style="margin: -6px 0px!important;"}
+* In Kooperation mit Karina Karst (Mannheim), Nadine Anskeit und Sarah Bez (Karlsruhe), gefördert durch die Robert Bosch Stiftung 
+* Service Learning Projekt, in dem Lehramtsstudierende für diagnosegeleitete Leseflüssigkeitsförderung professionalisiert werden
+* Zentraler Befund: [Effekte auf Schülerebene in Quasiexperiment {{< iconify fa6-solid:arrow-up-right-from-square >}}](img/Ergebnisse_ccPENDL.png){.lightbox} 
+
+
+::: {.footer}
+[{{< iconify fa6-solid timeline >}} - {{< iconify fa6-solid:scale-unbalanced >}} - {{< iconify charm:binary >}}]{style="color: #b4b4b4;"} - **{{< iconify fa6-solid microscope >}}**
+:::  
+
+
+
+
+
+
+## Literatur {.smaller}
+
+::: footer
+:::

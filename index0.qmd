@@ -1,0 +1,479 @@
+---
+title: Formatives Assessment
+subtitle: Bildungswissenschaftliche und fachdidaktische Aspekte professionellen Handelns von Lehrpersonen
+author: Samuel Merk
+
+date: 04/29/2025
+date-format: long
+
+logo: img/ph-logo.svg
+footer: Folien {{< iconify streamline:creative-commons-solid >}} {{< iconify fa6-brands:creative-commons-by >}} unter bit.ly/merk123
+
+format: 
+  revealjs:
+    slide-number: c
+brand: _template/_brand.yml    
+
+lang: de
+
+nocite: |
+  @misanchuk1978, @Deno1985, @black1998, @dunn2009, @Klauer2011
+bibliography: references.bib
+---
+
+## Überblick {.center}
+
+| {{< iconify fa6-solid timeline >}} | **Formatives Assessment**: (Historische) Definitionen |
+|---------------------------------------:|:-------------------------------|
+| {{< iconify fa-solid:chalkboard-teacher >}} | **Professionalität & Formatives Assessment** |
+| {{< iconify fa6-solid repeat >}} | Zum **Verhältnis** fachdidaktischer und bildungswissenschaftlicher Aspekte |
+| {{< iconify fa6-solid microscope >}} | Ausgewählte **Projekte & Befunde** |
+
+: Vortragsüberblick {#tbl-agenda tbl-colwidths="\[5,90\]"}
+
+<style>
+#tbl-agenda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca {
+  color: #d9534f00; /* transparant */
+  font-weight: bold;
+}
+</style>
+
+## <!-- Historie--> {auto-animate="true"}
+
+::: {style="margin-top: 300px; font-size: 2em; font-weight: bold; color:#267326; margin-left: 110px;"}
+Historie {{< iconify fa6-solid timeline >}}
+:::
+
+::: footer
+:::
+
+
+## <!-- Historie--> {.smaller auto-animate="true"}
+
+::: {style="margin-top: 0px;font-size: 2.3em; font-weight: bold; color:#267326; margin-left: 0px;"}
+Historie {{< iconify fa6-solid timeline >}}
+:::
+
+<center>
+![Abbildung 1: Zentrale Definitionen](img/timeline01.png){fig.align="center"}
+</center>
+
+::: {.incremental}
+* *\[...\] terminal evaluation (we might call it summative as opposed to formative evaluation) \[...\]* [@scriven1967]
+* *Evaluation, used to improve the course while it is still fluid* [@cronbach1964]
+* *\[...\] systematic evaluation in the process of curriculum construction, teaching and learning for the purpose of improving any of these three processes \[...\]* [@Bloom1969]
+:::
+
+::: {.footer}
+**{{< iconify fa6-solid timeline >}}** [- {{< iconify fa-solid:chalkboard-teacher >}} - {{< iconify fa6-solid repeat >}} - {{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4;"}
+:::
+
+
+## Historie {{< iconify fa6-solid timeline >}} {.smaller}
+
+<center>
+
+![Abbildung 1: Zentrale Definitionen](img/timeline_misdeno.png){fig.align="center"}
+
+```{=html}
+<script src="https://cdn.wordart.com/wordart.min.js" async defer></script>
+```
+
+::: {style="height:300px" data-wordart-src="https://cdn.wordart.com/json/7xj8vm7szv1e"}
+:::
+
+</center>
+
+::: {.footer}
+**{{< iconify fa6-solid timeline >}}** [- {{< iconify fa-solid:chalkboard-teacher >}} - {{< iconify fa6-solid repeat >}} - {{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4;"}
+:::
+
+## Historie {{< iconify fa6-solid timeline >}}
+
+<center>
+
+![Abbildung 1: Zentrale Definitionen](img/timeline_abBlack.png){fig.align="center"}
+
+</center>
+
+> *In other words, assessment is formative only when comparison of actual and reference levels yields information which is then used to alter the gap* [@black1998].
+
+::: {.footer}
+**{{< iconify fa6-solid timeline >}}** [- {{< iconify fa-solid:chalkboard-teacher >}} - {{< iconify fa6-solid repeat >}} - {{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4;"}
+:::
+
+## <!-- Stand der Forschung--> {auto-animate="true"}
+
+::: {style="margin-top: 300px; font-size: 2em; font-weight: bold; color:#267326; margin-left: 110px;"}
+Stand der Forschung {{< iconify fa6-solid scale-left >}}
+:::
+
+::: footer
+:::
+
+## Metanalysen {{< iconify fa6-solid scale-unbalanced >}} {.smaller}
+
+::::: columns
+::: {.column width="50%"}
+-   Ältere Metaanalysen [@fuchs1986; @black1998] kommen zu sehr positiven Ergebnissen $(.4<d<.7)$
+-   Jüngere Metaanalysen sind immer noch positiv aber konservativer [vgl. @dunn2009; @kingston2011; @mclaughlin2017]
+-   Als Moderatoren werden insbesondere das Fach und die Treatment-Art vorgeschlagen [@kingston2011]
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| fig-height: 5
+#| fig-format: "svg"
+#| fig-width: 5
+#| fig-cap: "[Abbildung 2: Visualisierung der Effektstärken]{.center}"
+
+set.seed(1234)
+library(tidyverse)
+library(bayestestR)
+library(ggdist)
+library(hrbrthemes)
+library(colorspace)
+
+data <- tibble(
+  `Summativ_Cohen's d = .4` = distribution_normal(300, 13),
+  `Formativ_Cohen's d = .4` = distribution_normal(300, 13 + .4),
+  `Summativ_Cohen's d = .7` = distribution_normal(300, 13),
+  `Formativ_Cohen's d = .7` = distribution_normal(300, 13 + .7)) %>% 
+  gather(Gruppe, Leistung) %>% 
+  mutate(Effektstärke = str_sub(Gruppe, -14, -1),
+         Gruppe = str_sub(Gruppe, 1, 8))
+
+
+ggplot(data, aes(Leistung, Gruppe)) +
+  geom_dots(fill = lighten("#267326", .3),
+            color = lighten("#267326", .3),
+            layout = "hex") + 
+  #stat_halfeye(fill = "#26732650",
+  #             color = "#174717") +
+  stat_pointinterval(color = "#174717") +
+  facet_wrap(~ Effektstärke, ncol = 1) +
+  theme_ipsum_rc() + 
+  ylab("") +
+  theme(axis.line.x = element_blank(),
+        axis.text.x = element_blank(),
+        panel.background = element_rect(fill = "#f2f2f2",
+                                        color = "#f2f2f2"),
+        plot.background = element_rect(fill = "#f2f2f2",
+                                        color = "#f2f2f2"))
+```
+:::
+:::::
+
+::: {.footer}
+**{{< iconify fa6-solid timeline >}}** [- {{< iconify fa-solid:chalkboard-teacher >}} - {{< iconify fa6-solid repeat >}} - {{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4;"}
+:::
+
+
+## Metanalysen {{< iconify fa6-solid scale-unbalanced >}} {.smaller}
+
+::::: columns
+::: {.column width="50%"}
+-   Ältere Metaanalysen [@fuchs1986; @black1998] kommen zu sehr positiven Ergebnissen $(.4<d<.7)$
+-   Jüngere Metaanalysen sind immer noch positiv aber konservativer [vgl. @dunn2009; @kingston2011; @mclaughlin2017]
+-   Als Moderatoren werden insbesondere das Fach und die Treatment-Art vorgeschlagen [@kingston2011]
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| fig-height: 5
+#| fig-format: "svg"
+#| fig-width: 5
+#| fig-cap: "[Abbildung 3: Visualisierung der Effektstärken]{.center}"
+
+
+library(tidyverse)
+library(bayestestR)
+library(ggdist)
+library(hrbrthemes)
+library(colorspace)
+set.seed(1234)
+data <- tibble(
+  `Summativ_Cohen's d = .4` = distribution_normal(300, 13),
+  `Formativ_Cohen's d = .4` = distribution_normal(300, 13 + .4),
+  `Summativ_Cohen's d = .7` = distribution_normal(300, 13),
+  `Formativ_Cohen's d = .7` = distribution_normal(300, 13 + .7)) %>% 
+  gather(Gruppe, Leistung) %>% 
+  mutate(Effektstärke = str_sub(Gruppe, -14, -1),
+         Gruppe = str_sub(Gruppe, 1, 8))
+
+
+ggplot(data, aes(Leistung, Gruppe, 
+                 color = Leistung >= 13,
+                 fill = Leistung > 13)) +
+  geom_dots(layout = "hex") + 
+  #stat_pointinterval(color = "#174717") +
+  scale_color_manual(values = c(lighten("#267326", .3), 
+                                        lighten("#174717", .6))) + 
+  scale_fill_manual(values = c(lighten("#267326", .3), 
+                                       lighten("#174717", .6))) + 
+  facet_wrap(~ Effektstärke, ncol = 1) +
+  theme_ipsum_rc() + 
+  ylab("") +
+  theme(axis.line.x = element_blank(),
+        axis.text.x = element_blank(),
+        panel.background = element_rect(fill = "#f2f2f2",
+                                        color = "#f2f2f2"),
+        plot.background = element_rect(fill = "#f2f2f2",
+                                        color = "#f2f2f2"),
+        legend.position = "none")
+```
+:::
+:::::
+
+::: {.footer}
+**{{< iconify fa6-solid timeline >}}** [- {{< iconify fa-solid:chalkboard-teacher >}} - {{< iconify fa6-solid repeat >}} - {{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4;"}
+:::
+
+
+## <!-- Professionalität--> {auto-animate="true"}
+
+::: {style="margin-top: 300px; font-size: 2em; font-weight: bold; color:#267326; margin-left: 110px;"}
+[Professionalität {{< iconify fa-solid:chalkboard-teacher >}}]{.imp}
+:::
+
+::: {.footer}
+:::
+
+## <!-- Professionalität--> {.smaller auto-animate="true"}
+
+::: {style="margin-top: 0px;font-size: 2.3em; font-weight: bold; color:#267326; margin-left: 0px;"}
+Professionalität {{< iconify fa-solid:chalkboard-teacher >}}
+:::
+
+:::::: columns
+::: {.column width="33%"}
+
+#### Kompetenztheo. Ansatz 
+* In der Tradition Expertiseansatzes der Lehrpersonenprofessionalität [@bromme1992]
+* Topologie von Wissen, Überzeugungen, Werthaltungen, mot. Orientierungen selbstregulativen Fäh. [@baumert2006]
+:::
+
+::: {.column width="33%"}
+#### Strukturtheo. Ansatz
+* Soziologischer Fokus auf Rollenerwartungen und soziale Gefüge [@helsper2014]
+* Insbesondere sog. »Antinomien« wurden stark rezipiert [@fabel-lamla2018]
+:::
+
+::: {.column width="33%"}
+#### Berufsbiografischer Ansatz
+* In Tradition erziehungswissenschaftlicher Biografieforschung [@terhart1992]
+* Stark intraindividuelle Perspektive [@fabel-lamla2018]
+:::
+::::::
+
+:::: {.columns}
+::: {.column width='33%'}
+<center>[{{< iconify fluent-mdl2:venn-diagram size=3x >}}]{style='color:#267326;'}</center>
+:::
+
+::: {.column width='33%'}
+<center>[{{< iconify oui:app-users-roles size=3x >}}]{style='color:#267326;'}</center>
+:::
+
+::: {.column width='33%'}
+<center>[{{< iconify lineicons:route-1 size=3x >}}]{style='color:#267326;'}</center>
+:::
+
+::::
+
+
+
+::: {.footer}
+[{{< iconify fa6-solid timeline >}}]{style="color: #b4b4b4;"} - **{{< iconify fa-solid:chalkboard-teacher >}}** [- {{< iconify fa6-solid repeat >}} - {{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4;"}
+:::
+
+## <!-- Fachdidaktik & Bildungswissenschaften --> {auto-animate="true"}
+::: {style="margin-top: 300px; font-size: 1.8em; font-weight: bold; color:#267326; margin-left: 110px;"}
+[Fachdidaktik & Bildungswiss. {{< iconify fa6-solid repeat >}}]{.imp}
+:::
+
+::: {.footer}
+:::
+
+## <!-- Fachdidaktik & Bildungswiss.--> {auto-animate="true" .smaller}
+::: {style="margin-top: 0px;font-size: 2.3em; font-weight: bold; color:#267326; margin-left: 0px;"}
+Fachdidaktik & Bildungswiss. {{< iconify fa6-solid repeat >}}
+:::
+. . .
+
+**Gewisse bildungswiss. Aspekte sind notwendige Bedingung für »professionelles FA«**
+
+![](img/notwBed.png){group="gallery1"}
+
+::: {.footer}
+[{{< iconify fa6-solid timeline >}} - {{< iconify fa-solid:chalkboard-teacher >}}]{style="color: #b4b4b4;"} - **{{< iconify fa6-solid repeat >}}** - [{{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4;"}
+:::
+
+## Fachdidaktik & Bildungswiss. {{< iconify fa6-solid repeat >}} {.smaller}
+**Gewisse fachdidaktische Aspekte sind notwendige Bedingung für »professionelles FA«**
+
+:::: {.columns}
+
+::: {.column width='40%'}
+*Welche Aufgabe in Klasse 7 für FA?*
+
+1) $378 \cdot 605 = ?$
+2) $58,7 \cdot 0,94 = ?$
+3) $\frac{1}{2} \cdot \frac{5}{6} = ?$
+4) Gwendolyn ist $\frac{3}{4}$ so alt wie Rebecca. Rebecca ist $\frac{2}{3}$ so alt wie Edwin. Edwin ist $20$ Jahre alt. Wie alt ist Gwendolyn?
+
+
+:::
+
+::: {.column width='60%'}
+<center>
+![Hassediagramm der Aufgaben [@falmagne1990]](img/hasse.png){width=60%}
+</center>
+:::
+
+::::
+
+::: {.footer}
+[{{< iconify fa6-solid timeline >}} - {{< iconify fa-solid:chalkboard-teacher >}}]{style="color: #b4b4b4;"} - **{{< iconify fa6-solid repeat >}}** - [{{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4;"}
+:::
+
+
+## Fachdidaktik & Bildungswiss. {{< iconify fa6-solid repeat >}} {.smaller}
+**Bildungswiss. Aspekte können induktiv entstehen**
+
+::: {.r-stack}
+![](img/Induktion3 (5).png){.fragment width="780"}
+
+![](img/Induktion3 (7).png){.fragment width="780"}
+
+![](img/Induktion3 (8).png){.fragment width="780"}
+
+![](img/Induktion3 (9).png){.fragment width="780"}
+
+![](img/Induktion3 (6).png){.fragment width="780"}
+
+![](img/Induktion3 (10).png){.fragment width="780"}
+:::
+
+
+
+::: {.footer}
+[{{< iconify fa6-solid timeline >}} - {{< iconify fa-solid:chalkboard-teacher >}}]{style="color: #b4b4b4;"} - **{{< iconify fa6-solid repeat >}}** - [{{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4;"}
+:::
+
+## Fachdidaktik & Bildungswiss. {{< iconify fa6-solid repeat >}} {.smaller}
+**Fachdidaktische Aspekte können deduktiv entstehen**
+
+::: {.r-stack}
+![](img/deduktion.png){.fragment width="720"}
+
+![](img/deduktion (1).png){.fragment width="720"}
+
+![](img/deduktion (2).png){.fragment width="720"}
+
+![](img/deduktion (3).png){.fragment width="720"}
+:::
+
+
+
+::: {.footer}
+[{{< iconify fa6-solid timeline >}} - {{< iconify fa-solid:chalkboard-teacher >}}]{style="color: #b4b4b4;"} - **{{< iconify fa6-solid repeat >}}** - [{{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4;"}
+:::
+
+## <!-- Ausgewählte Projekte & Befunde --> {auto-animate="true"}
+::: {style="margin-top: 300px; font-size: 1.5em; font-weight: bold; color:#267326; margin-left: 110px;"}
+[Ausgewählte Projekte & Befunde {{< iconify fa6-solid microscope >}}]{.imp}
+:::
+
+::: {.footer}
+:::
+
+## <!-- Ausgewählte Projekte & Befunde--> {.smaller auto-animate="true" .scrollable}
+::: {style="margin-top: 0px;font-size: 2.3em; font-weight: bold; color:#267326; margin-left: 0px;"}
+Ausgewählte Projekte & Befunde {{< iconify fa6-solid microscope >}}
+:::
+
+#### **Vom Testergebnis zur pädagogischen Maßnahme** 
+* In Kooperation mit Martin Tomasik (Zürich) und Sarah Bez (Karlsruhe), gefördert durch die Biaesch Stiftung 
+* Explorativer Fokus auf Rezeptions- und Sensemakingprozesse von Heavy-Usern des digitalen formativen Assessmentsystems mindsteps
+* Zentraler Befund: [»Fachdidaktische Fehleranalyse« nimmt großen Raum ein und scheint wichtige Voraussetzung für die Konstruktion praktischer Implikationen {{< iconify fa6-solid:arrow-up-right-from-square >}}](img/biaesch_ergebnis.png){.lightbox} 
+* Anschlussfragestellung:  
+
+    *Wie kann diese »Fachdidaktische Fehleranalyse« unterstützt werden?*
+    
+  
+::: {.footer}
+[{{< iconify fa6-solid timeline >}} - {{< iconify fa-solid:chalkboard-teacher >}} - {{< iconify fa6-solid repeat >}}]{style="color: #b4b4b4;"} - **{{< iconify fa6-solid microscope >}}**
+:::  
+  
+    
+## Ausgewählte Projekte & Befunde {{< iconify fa6-solid microscope >}} {.smaller}
+#### Projekt: **ccPENDL** 
+* In Kooperation mit Karina Karst (Mannheim) und Sarah Bez (Kalrsruhe), gefördert durch die Robert Bosch Stiftung 
+* Service Learning Projekt in dem Lehramtsstudierende für diagnosegeleite Leseflüssigkeitsförderung professionalisiert werden
+* Zentraler Befund: [Effekte auf Schülerebene in Quasiexperiment {{< iconify fa6-solid:arrow-up-right-from-square >}}](img/biaesch_ergebnis.png){.lightbox} 
+* Anschlussfragestellung: 
+
+    *Kann Interesse und Selbstwirksamkeit bzgl. diagnosegleiteter Leseförderung durch individualisierte Motivationsinterventionen gesteigert werden?*
+
+::: {.footer}
+[{{< iconify fa6-solid timeline >}} - {{< iconify fa-solid:chalkboard-teacher >}} - {{< iconify fa6-solid repeat >}}]{style="color: #b4b4b4;"} - **{{< iconify fa6-solid microscope >}}**
+:::  
+
+## Ausgewählte Projekte & Befunde {{< iconify fa6-solid microscope >}} {.smaller}
+#### Teilprojekt: **Aufgabendashboards** (Promotionskolleg AQUA-d)
+* In Kooperation mit Anouschka van Leeuwen (Utrecht) & Thorsten Bohl (Tübingen), gefördert durch das MWK Baden-Württemberg
+* Zentraler Befund: [Die grafische Darstellung beeinflusst die eingenommene Bezugsnorm{{< iconify fa6-solid:arrow-up-right-from-square >}}](img/biaesch_ergebnis.png){.lightbox} 
+* Anschlussfragestellung:
+
+    *Wie sollten sozial normierte mehrdimensionale formative Assessments kommuniziert werden?*
+    
+::: {.footer}
+[{{< iconify fa6-solid timeline >}} - {{< iconify fa-solid:chalkboard-teacher >}} - {{< iconify fa6-solid repeat >}}]{style="color: #b4b4b4;"} - **{{< iconify fa6-solid microscope >}}**
+:::  
+
+
+## {.center}
+<center>
+[{{< iconify fa6-solid timeline >}}]{style="color: #237326; font-size:2em;"} [- {{< iconify fa-solid:chalkboard-teacher >}} - {{< iconify fa6-solid repeat >}} - {{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4; font-size:2em;"}
+
+[{{< iconify fa6-solid handshake >}}]{style="color: #b4b4b4; font-size:3em;"}
+</center>
+::: footer
+:::
+
+## {.center data-visibility="uncounted"}
+<center>
+[{{< iconify fa6-solid timeline >}} - ]{style="color: #b4b4b4; font-size:2em;"} [{{< iconify fa-solid:chalkboard-teacher >}} - {{< iconify fa6-solid repeat >}}]{style="color: #237326; font-size:2em;"} [- {{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4; font-size:2em;"}
+
+[{{< iconify fa6-solid handshake >}}]{style="color: #b4b4b4; font-size:3em;"}
+</center>
+::: footer
+:::
+
+## {.center data-visibility="uncounted"}
+<center>
+[{{< iconify fa6-solid timeline >}} - {{< iconify fa-solid:chalkboard-teacher >}} - {{< iconify fa6-solid repeat >}}]{style="color: #b4b4b4; font-size:2em;"} [- {{< iconify fa6-solid microscope >}}]{style="color: #237326; font-size:2em;"}
+
+[{{< iconify fa6-solid handshake >}}]{style="color: #b4b4b4; font-size:3em;"}
+</center>
+::: footer
+:::
+
+
+## {.center data-visibility="uncounted"}
+<center>
+[{{< iconify fa6-solid timeline >}} - {{< iconify fa-solid:chalkboard-teacher >}} - {{< iconify fa6-solid repeat >}} - {{< iconify fa6-solid microscope >}}]{style="color: #b4b4b4; font-size:2em;"}
+
+[{{< iconify fa6-solid handshake >}}]{style="color: #237326; font-size:3em;"}
+</center>
+::: footer
+:::
+
+
+## Literatur
+
+::: footer
+:::
