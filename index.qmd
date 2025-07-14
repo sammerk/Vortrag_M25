@@ -57,9 +57,9 @@ Historie {{< iconify fa6-solid timeline >}}
 </center>
 
 ::: {.incremental}
-* *\[...\] terminal evaluation (we might call it summative as opposed to formative evaluation) \[...\]* [@scriven1967]
-* *Evaluation, used to improve the course while it is still fluid* [@cronbach1964]
-* *\[...\] systematic evaluation in the process of curriculum construction, teaching and learning for the purpose of improving any of these three processes \[...\]* [@Bloom1969]
+* *\[...\] terminal evaluation (we might call it summative as opposed to formative evaluation) \[...\]* [@scriven1967, S. 5]
+* *Evaluation, used to improve the course while it is still fluid* [@cronbach1964, S. 236]
+* *\[...\] systematic evaluation in the process of curriculum construction, teaching and learning for the purpose of improving any of these three processes \[...\]* [@bloom1971a, S. 117]
 :::
 
 ::: {.footer}
@@ -98,11 +98,11 @@ Stand der Forschung {{< iconify fa6-solid:scale-unbalanced >}}
 ::: {layout-ncol=2}
 ![Abbildung 1: Zentrale Definitionen](img/timeline_stateoftheart.png){fig-align="left" width="99%"}
 
-![Abbildung 3: Five Key Strategies von @wiliam2007](img/WilliamThompson2007.svg){fig-align="left" width="99%"}
+![Abbildung 3: Five Key Strategies nach William & Thompson (2007)](img/WilliamThompson2007.svg){fig-align="left" width="99%"}
 :::
 
 
-> *formative Assessment [...] can be conceptualized as consisting of **five key strategies** and **one »big idea«**. [...] The »big idea« is that evidence about student learning is used to adjust instruction to  better meet student needs.* [@wiliam2007. S. 56].
+> *formative Assessment [...] can be conceptualized as consisting of **five key strategies** and **one »big idea«**. [...] The »big idea« is that evidence about student learning is used to adjust instruction to  better meet student needs.* [@wiliam2007. S. 64].
 
 
 ::: {.footer}
@@ -181,7 +181,7 @@ ggplot(data, aes(Leistung, Gruppe)) +
 Digitale Transformation {{< iconify charm:binary >}}
 :::
 
-* **Einerseits** ist digitale Technologie in Unterrichtssettings weder notwendige noch hinreichende Bedingung für (Lern-)Erfolg [@bez2022; @hamilton2016; @scheiter2019]
+* **Einerseits** ist digitale Technologie in Unterrichtssettings weder eine notwendige noch hinreichende Bedingung für (Lern-)Erfolg [@bez2023; @hamilton2016; @scheiter2019]
 * **Andererseits** sind digitalen Technologien [*Charakteristika*]{.imp} inhärent, welche die Umsetzung von formativem Assessment enorm erleichtern können:
     * [*Echtzeitdatenverarbeitung*]{.imp} $\Rightarrow$ z.B. sofortiges Feedback
     * [*Multimedialität*]{.imp} $\Rightarrow$ z.B. neue Aufgabenformen
